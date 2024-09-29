@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
 
 class ProjectDetailPage extends StatelessWidget {
-  final String title;
-  final String description;
-  final String imageUrl;
+  final Map<String, dynamic> project; // Cambiar a Map
 
   ProjectDetailPage({
-    required this.title,
-    required this.description,
-    required this.imageUrl,
+    required this.project,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(project['title']), // Acceso al título desde el mapa
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Image.network(
-              imageUrl,
+              project['imageUrl'], // Acceso a la URL de la imagen
               fit: BoxFit.cover,
               width: double.infinity,
               height: 250,
@@ -29,7 +25,7 @@ class ProjectDetailPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                description,
+                project['detailedDescription'], // Acceso a la descripción detallada
                 style: TextStyle(fontSize: 16),
               ),
             ),
