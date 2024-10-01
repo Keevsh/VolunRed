@@ -11,130 +11,96 @@ class _HomePageState extends State<HomePage> {
 
   // Datos de ejemplo de los proyectos
   final List<Map<String, dynamic>> projectData = [
-    {
-      'title': 'Proyecto 1',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 1.',
-      'volunteer': 'Voluntariado 1',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 1.',
-      'status': 'Activos',
-    },
-    {
-      'title': 'Proyecto 2',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 2.',
-      'volunteer': 'Voluntariado 2',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 2.',
-      'status': 'Futuros',
-    },
-    {
-      'title': 'Proyecto 3',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 3.',
-      'volunteer': 'Voluntariado 3',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 3.',
-      'status': 'Pasados',
-    },
-    // Proyectos activos
-    {
-      'title': 'Proyecto 4',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 4.',
-      'volunteer': 'Voluntariado 4',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 4.',
-      'status': 'Activos',
-    },
-    {
-      'title': 'Proyecto 5',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 5.',
-      'volunteer': 'Voluntariado 5',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 5.',
-      'status': 'Activos',
-    },
-    {
-      'title': 'Proyecto 6',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 6.',
-      'volunteer': 'Voluntariado 6',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 6.',
-      'status': 'Activos',
-    },
-    {
-      'title': 'Proyecto 7',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 7.',
-      'volunteer': 'Voluntariado 7',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 7.',
-      'status': 'Activos',
-    },
-    // Proyectos futuros
-    {
-      'title': 'Proyecto 8',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 8.',
-      'volunteer': 'Voluntariado 8',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 8.',
-      'status': 'Futuros',
-    },
-    {
-      'title': 'Proyecto 9',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 9.',
-      'volunteer': 'Voluntariado 9',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 9.',
-      'status': 'Futuros',
-    },
-    {
-      'title': 'Proyecto 10',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 10.',
-      'volunteer': 'Voluntariado 10',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 10.',
-      'status': 'Futuros',
-    },
-    {
-      'title': 'Proyecto 11',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 11.',
-      'volunteer': 'Voluntariado 11',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 11.',
-      'status': 'Futuros',
-    },
-    // Proyectos pasados
-    {
-      'title': 'Proyecto 12',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 12.',
-      'volunteer': 'Voluntariado 12',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 12.',
-      'status': 'Pasados',
-    },
-    {
-      'title': 'Proyecto 13',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 13.',
-      'volunteer': 'Voluntariado 13',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 13.',
-      'status': 'Pasados',
-    },
-    {
-      'title': 'Proyecto 14',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 14.',
-      'volunteer': 'Voluntariado 14',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 14.',
-      'status': 'Pasados',
-    },
-    {
-      'title': 'Proyecto 15',
-      'imageUrl': 'https://via.placeholder.com/400x200',
-      'description': 'Descripción breve del Proyecto 15.',
-      'volunteer': 'Voluntariado 15',
-      'detailedDescription': 'Esta es una descripción extensa del Proyecto 15.',
-      'status': 'Pasados',
-    },
-  ];
+  {
+    'title': 'Construcción de Viviendas Ecológicas',
+    'imageUrl':
+        'https://inarquia.es/wp-content/uploads/2133-construir-casa-ecologica-PR.png',
+    'description':
+        'Construcción de casas sustentables para familias de bajos recursos.',
+    'volunteer': 'Manos Unidas',
+    'detailedDescription':
+        'En este proyecto, los voluntarios ayudarán en la construcción de viviendas utilizando materiales reciclados y técnicas de arquitectura sostenible. A través de este esfuerzo, buscamos no solo proporcionar hogares dignos a familias en situación vulnerable, sino también generar conciencia sobre la importancia de la sostenibilidad y el uso de recursos renovables en la construcción. Los voluntarios estarán involucrados en todas las etapas del proceso, desde la planificación y diseño hasta la construcción y finalización de las casas, garantizando que cada vivienda se adapte a las necesidades específicas de cada familia.',
+    'status': 'Activos',
+  },
+  {
+    'title': 'Reforestación en el Amazonas',
+    'imageUrl':
+        'https://solagro.com.pe/wp-content/uploads/2019/01/REFORESTACI%C3%93N-1024x509.jpg',
+    'description':
+        'Proyecto de reforestación para combatir la deforestación en la región amazónica.',
+    'volunteer': 'Guardianes del Bosque',
+    'detailedDescription':
+        'Voluntarios se unirán para plantar árboles y restaurar zonas afectadas por la deforestación en el Amazonas. Este proyecto no solo busca reforestar el área, sino también involucrar a las comunidades locales en la conservación de su entorno natural. Los participantes aprenderán sobre la flora y fauna nativas, así como sobre prácticas de conservación efectivas, y participarán en talleres educativos para crear conciencia sobre la importancia de preservar nuestros ecosistemas. La colaboración con los líderes comunitarios garantizará que las iniciativas sean sostenibles a largo plazo.',
+    'status': 'Futuros',
+  },
+  {
+    'title': 'Educación para Todos',
+    'imageUrl':
+        'https://iisec.ucb.edu.bo/assets_iisec/img/publicacion/600x315/Educacion_en_Bolivia_thumb.jpg',
+    'description':
+        'Programa de tutorías y apoyo escolar para niños de bajos recursos.',
+    'volunteer': 'Red de Voluntarios Educativos',
+    'detailedDescription':
+        'El objetivo de este proyecto es proporcionar clases de apoyo a estudiantes en situación de vulnerabilidad para mejorar su rendimiento académico y brindar oportunidades educativas de calidad. Los voluntarios serán capacitados para ofrecer tutorías personalizadas en diversas materias, además de organizar talleres y actividades extracurriculares que fomenten el aprendizaje integral. Se busca no solo mejorar las calificaciones, sino también inspirar a los jóvenes a perseguir sus sueños y desarrollar habilidades que les serán útiles a lo largo de su vida. Además, se trabajará en la creación de un ambiente de aprendizaje positivo y motivador.',
+    'status': 'Activos',
+  },
+  {
+    'title': 'Banco de Alimentos Comunitario',
+    'imageUrl':
+        'https://www.gob.mx/cms/uploads/article/main_image/1880/110315_miguel_angel_mancera-banco_de_alimentos_ceda_5.jpg',
+    'description':
+        'Recopilación y distribución de alimentos a familias en situación de pobreza.',
+    'volunteer': 'Solidaridad en Acción',
+    'detailedDescription':
+        'Este proyecto tiene como objetivo distribuir alimentos no perecederos a familias de bajos ingresos. Los voluntarios participarán en la recolección, clasificación y entrega de alimentos en diferentes comunidades, trabajando en estrecha colaboración con organizaciones locales para identificar las necesidades de las familias y asegurar que los alimentos lleguen a quienes más los necesitan. Además, se llevarán a cabo campañas de sensibilización para informar sobre la importancia de combatir el hambre y la desnutrición, involucrando a la comunidad en la lucha contra estos problemas sociales.',
+    'status': 'Activos',
+  },
+  {
+    'title': 'Protección de Tortugas Marinas',
+    'imageUrl':
+        'https://traveler.marriott.com/es/wp-content/uploads/sites/2/2018/06/GI-148404563-UnderwaterSeaTurtle-header.jpg',
+    'description':
+        'Proyecto de conservación para proteger las tortugas marinas en peligro de extinción.',
+    'volunteer': 'EcoGuardianes',
+    'detailedDescription':
+        'Voluntarios ayudarán en la protección y monitoreo de tortugas marinas en su hábitat natural, asegurándose de que lleguen al océano de manera segura. Este proyecto incluye la realización de actividades de limpieza de playas, educación ambiental y el seguimiento de las poblaciones de tortugas. Los voluntarios recibirán formación sobre el ciclo de vida de las tortugas y las amenazas que enfrentan, y participarán en actividades de concienciación dirigidas a turistas y locales para fomentar la protección de estas especies en peligro de extinción.',
+    'status': 'Futuros',
+  },
+  {
+    'title': 'Asistencia Médica en Zonas Rurales',
+    'imageUrl':
+        'https://www.minsalud.gob.bo/images/noticias16/misaludnota2.gif',
+    'description':
+        'Brindar atención médica y sanitaria a comunidades rurales.',
+    'volunteer': 'Salud para Todos',
+    'detailedDescription':
+        'Este proyecto busca llevar servicios médicos básicos a comunidades rurales alejadas, que tienen acceso limitado a centros de salud. Los voluntarios, que pueden ser médicos, enfermeras o personas con conocimientos de primeros auxilios, brindarán atención médica, servicios de vacunación y educación en salud. A través de jornadas de salud, se abordarán temas cruciales como la prevención de enfermedades y la importancia de una buena nutrición, mientras se establecen relaciones de confianza con las comunidades para fomentar el autocuidado y la salud preventiva.',
+    'status': 'Pasados',
+  },
+  {
+    'title': 'Construcción de Pozos de Agua en Comunidades Rurales',
+    'imageUrl':
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuA9PRlnIgSqmaR6xfv9Sd_Kd7AJBhzdiAWA&s',
+    'description':
+        'Proyecto de acceso a agua potable mediante la construcción de pozos.',
+    'volunteer': 'Agua para la Vida',
+    'detailedDescription':
+        'Voluntarios colaborarán en la construcción de pozos para proveer agua potable a comunidades rurales que no tienen acceso a fuentes de agua limpia. Este proyecto no solo se centrará en la construcción física de los pozos, sino también en la educación sobre la importancia del agua potable y la higiene. Se brindará capacitación a los voluntarios sobre técnicas de construcción sostenible y se trabajará junto con los miembros de la comunidad para garantizar que el mantenimiento de los pozos se realice de manera adecuada y continua, mejorando así la calidad de vida de los habitantes.',
+    'status': 'Pasados',
+  },
+  {
+    'title': 'Rescate de Animales Abandonados',
+    'imageUrl':
+        'https://imagenes.eltiempo.com/files/image_1200_600/uploads/2022/03/08/6227fed4ba887.jpeg',
+    'description':
+        'Proyecto de rescate y adopción de animales abandonados en zonas urbanas.',
+    'volunteer': 'Hogar Animal',
+    'detailedDescription':
+        'Este proyecto tiene como fin el rescate de perros y gatos abandonados. Los voluntarios ayudarán en el cuidado, alimentación y rehabilitación de los animales hasta que encuentren un hogar definitivo. Además, se realizarán campañas de adopción y concienciación sobre la tenencia responsable de mascotas, fomentando la adopción en lugar de la compra. Los voluntarios aprenderán sobre el bienestar animal y tendrán la oportunidad de interactuar con los animales, ayudando a mejorar sus condiciones de vida y promoviendo la empatía hacia todos los seres vivos.',
+    'status': 'Pasados',
+  }
+];
+
 
   final List<Map<String, dynamic>> volunteerButtons = [
     {'name': 'Voluntariado 1', 'color': Colors.red},
@@ -149,13 +115,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'VolunRed',
-            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
-          ),
-        ),
+  title: Row(
+    mainAxisAlignment: MainAxisAlignment.center, // Centrar el contenido
+    children: [
+      Icon(Icons.volunteer_activism, size: 28), // Cambia el ícono según tus necesidades
+      const SizedBox(width: 8), // Espacio entre el ícono y el texto
+      const Text(
+        'VolunRed',
+        style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
       ),
+    ],
+  ),
+),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -174,7 +146,6 @@ class _HomePageState extends State<HomePage> {
                   _buildFilterDropdown(), // Selector de filtro
                 ],
               ),
-              
               _buildProjectList(context),
             ],
           ),
@@ -249,7 +220,8 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
-Widget _buildProjectList(BuildContext context) {
+
+  Widget _buildProjectList(BuildContext context) {
   List<Map<String, dynamic>> filteredProjects = projectData
       .where((project) => project['status'] == _selectedFilter)
       .toList();
@@ -278,6 +250,7 @@ Widget _buildProjectList(BuildContext context) {
             children: [
               // Imagen del proyecto
               Image.network(
+                
                 project['imageUrl'],
                 height: 200,
                 width: double.infinity,
@@ -285,15 +258,15 @@ Widget _buildProjectList(BuildContext context) {
               ),
               // Contenido sobre la imagen con degradado
               Positioned(
-                bottom: 0,
+                bottom: 0, // Mantiene el degradado al fondo
                 left: 0,
                 right: 0,
                 child: Container(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.only(top: 70, bottom: 8.0), // Ajusta el padding superior
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.black.withOpacity(0.8), // Degradado negro
+                        Colors.black.withOpacity(0.9), // Degradado negro
                         Colors.transparent, // Fondo transparente
                       ],
                       begin: Alignment.bottomCenter,
@@ -303,34 +276,32 @@ Widget _buildProjectList(BuildContext context) {
                       bottom: Radius.circular(8.0),
                     ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        project['title'],
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          project['title'],
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            height: 1.1, // Ajusta este valor para reducir el interlineado
+                          ),
+                          maxLines: 2, // Limita el texto a 2 líneas
+                          overflow: TextOverflow.ellipsis, // Maneja el texto largo
                         ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        project['description'],
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
+                        SizedBox(height: 0),
+                        Text(
+                          'Ver más..',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        'Voluntariado: ${project['volunteer']}',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -341,4 +312,5 @@ Widget _buildProjectList(BuildContext context) {
     },
   );
 }
+
 }
