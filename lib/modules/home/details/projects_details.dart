@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:volunred_app/modules/details/register_projects.dart';
 
 class ProjectDetailPage extends StatelessWidget {
   final Map<String, dynamic> project;
@@ -79,6 +80,11 @@ class ProjectDetailPage extends StatelessWidget {
                         0.9, // 90% del ancho de la pantalla
                     child: ElevatedButton(
                       onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterProjectPage()),
+                        );
                         // Acción del botón de registro
                       },
                       style: ElevatedButton.styleFrom(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:volunred_app/modules/projects_details/projects_details.dart';
+import 'package:volunred_app/modules/details/projects_details.dart';
 
 class ProjectList extends StatelessWidget {
   final String selectedFilter;
@@ -13,7 +13,6 @@ class ProjectList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Filtrar proyectos según el filtro seleccionado
     List<Map<String, dynamic>> filteredProjects = projectData
         .where((project) => project['status'] == selectedFilter)
         .toList();
@@ -25,7 +24,6 @@ class ProjectList extends StatelessWidget {
       itemBuilder: (context, index) {
         final project = filteredProjects[index];
 
-        // Aquí se asume que el estado está dentro de 'details', como un ejemplo
         bool showRegisterButton = project['details']['status'] == 'activo' || project['details']['status'] == 'futuro';
 
         return GestureDetector(
@@ -109,7 +107,6 @@ class ProjectList extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Mostrar botón "Registrar" si el estado es "activo" o "futuro"
                 if (showRegisterButton)
                   Padding(
                     padding: const EdgeInsets.all(8.0),

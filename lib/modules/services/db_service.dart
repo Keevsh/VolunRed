@@ -1,4 +1,4 @@
-/* import 'package:mysql1/mysql1.dart';
+import 'package:mysql1/mysql1.dart';
 
 class DbService {
   late MySqlConnection connection;
@@ -6,9 +6,9 @@ class DbService {
   Future<void> connect() async {
     final settings = ConnectionSettings(
       host: 'localhost', 
-      port: 3306,      
+      port: 3307,      
       user: 'root', 
-      password: '12345', 
+      password: '', 
       db: 'VoluntariadoDB', 
     );
 
@@ -29,4 +29,4 @@ class DbService {
     await connection.close();
   }
 }
- */
+ 
