@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:volunred_app/models/volunteer.dart'; // Asegúrate de importar el modelo
 
 class VolunteerDetail extends StatelessWidget {
-  final Map<String, dynamic> volunteer;
+  final Volunteer volunteer;
 
-  const VolunteerDetail({required this.volunteer});
+  const VolunteerDetail({Key? key, required this.volunteer}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Obtener el color del voluntariado
-    final Color volunteerColor = volunteer['color'] as Color;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(volunteer['name']),
-        //backgroundColor: volunteerColor, // Usar el color del voluntariado en el AppBar
+        title: Text(volunteer.name), // Accede al nombre del modelo
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -28,7 +25,7 @@ class VolunteerDetail extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: NetworkImage(volunteer['imageUrl'] ?? ''),
+                    image: NetworkImage(volunteer.imageUrl), // Accede a la URL de la imagen
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -36,41 +33,41 @@ class VolunteerDetail extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Sección de Descripción
-              _buildSectionTitle('Descripción', Icons.description, volunteerColor),
+              _buildSectionTitle('Descripción', Icons.description),
               const SizedBox(height: 8),
               Text(
-                volunteer['description'],
-                style: TextStyle(fontSize: 16, height: 1.5),
+                volunteer.description, // Accede a la descripción del modelo
+                style: const TextStyle(fontSize: 16, height: 1.5),
               ),
               const SizedBox(height: 24),
-              Divider(thickness: 2),
+              const Divider(thickness: 2),
 
               // Sección de Misión
-              _buildSectionTitle('Misión', Icons.flag, volunteerColor),
+              _buildSectionTitle('Misión', Icons.flag),
               const SizedBox(height: 8),
               Text(
-                volunteer['mission'],
-                style: TextStyle(fontSize: 16, height: 1.5),
+                volunteer.mission, // Accede a la misión del modelo
+                style: const TextStyle(fontSize: 16, height: 1.5),
               ),
               const SizedBox(height: 24),
-              Divider(thickness: 2),
+              const Divider(thickness: 2),
 
               // Sección de Visión
-              _buildSectionTitle('Visión', Icons.visibility, volunteerColor),
+              _buildSectionTitle('Visión', Icons.visibility),
               const SizedBox(height: 8),
               Text(
-                volunteer['vision'],
-                style: TextStyle(fontSize: 16, height: 1.5),
+                volunteer.vision, // Accede a la visión del modelo
+                style: const TextStyle(fontSize: 16, height: 1.5),
               ),
               const SizedBox(height: 24),
-              Divider(thickness: 2),
+              const Divider(thickness: 2),
 
               // Sección de Valores
-              _buildSectionTitle('Valores', Icons.star, volunteerColor),
+              _buildSectionTitle('Valores', Icons.star),
               const SizedBox(height: 8),
               Text(
-                volunteer['values'],
-                style: TextStyle(fontSize: 16, height: 1.5),
+                volunteer.values, // Accede a los valores del modelo
+                style: const TextStyle(fontSize: 16, height: 1.5),
               ),
             ],
           ),
@@ -79,18 +76,39 @@ class VolunteerDetail extends StatelessWidget {
     );
   }
 
-  // Helper para construir los títulos de sección con íconos y color dinámico
-  Widget _buildSectionTitle(String title, IconData icon, Color color) {
+  // Helper para construir los títulos de sección con íconos y color dinámico con degradado
+  Widget _buildSectionTitle(String title, IconData icon) {
+    final gradient = const LinearGradient(
+      colors: [
+        Color(0xFF3D4052), // Primer color del degradado
+        Color(0xFF09090C), // Segundo color del degradado
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
+
     return Row(
       children: [
-        Icon(icon, color: color, size: 28),
+        // Icono con degradado
+        ShaderMask(
+          shaderCallback: (bounds) {
+            return gradient.createShader(bounds);
+          },
+          child: Icon(icon, color: Colors.white, size: 28),
+        ),
         const SizedBox(width: 8),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: color,
+        // Texto con degradado
+        ShaderMask(
+          shaderCallback: (bounds) {
+            return gradient.createShader(bounds);
+          },
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white, // Este color será cubierto por el degradado
+            ),
           ),
         ),
       ],

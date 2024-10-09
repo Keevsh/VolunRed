@@ -1,134 +1,166 @@
 import 'package:flutter/material.dart';
+import 'package:volunred_app/models/project.dart';
+import 'package:volunred_app/services/firebase_service.dart'; // Asegúrate de importar el modelo
+import 'package:volunred_app/models/volunteer.dart'; // Importar el modelo Volunteer
 
 class RegisterProjectPage extends StatefulWidget {
+  final Project project;
+
+  const RegisterProjectPage({Key? key, required this.project}) : super(key: key);
+
   @override
-  _RegisterProjectPageState createState() => _RegisterProjectPageState();
+  RegisterProjectPageState createState() => RegisterProjectPageState();
 }
 
-class _RegisterProjectPageState extends State<RegisterProjectPage> {
-  final _formKey = GlobalKey<FormState>();
-
-  // Controladores para los campos del formulario
-  final TextEditingController _projectNameController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _organizationController = TextEditingController();
-  final TextEditingController _locationController = TextEditingController();
-  final TextEditingController _startDateController = TextEditingController();
-  final TextEditingController _endDateController = TextEditingController();
+class RegisterProjectPageState extends State<RegisterProjectPage> {
+  bool _acceptTerms = false;
+  bool _showFullTerms = false;
+  final DataService dataService = DataService();
+  final String userId = 'VKmCIydKtkauAIa90EL7'; // ID del usuario
 
   @override
-  void dispose() {
-    // Limpiar los controladores cuando se desecha el widget
-    _projectNameController.dispose();
-    _descriptionController.dispose();
-    _organizationController.dispose();
-    _locationController.dispose();
-    _startDateController.dispose();
-    _endDateController.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Fondo blanco
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Registrar Proyecto de Voluntariado'),
-        backgroundColor: Colors.transparent, // Hacer la barra de app transparente
-        elevation: 0, // Quitar la sombra de la barra de app
+        title: const Text(
+          'Inscripcion', 
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0), // Aumentar el padding
-        child: Form(
-          key: _formKey,
-          child: ListView(
-            children: [
-              // Título en negrita y tamaño grande
-              Text(
-                'Registrar Nuevo Proyecto',
+        padding: const EdgeInsets.all(20.0),
+        child: ListView(
+          children: [
+            Text(
+              'Proyecto: ${widget.project.title}',
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Términos y condiciones
+            _buildTermsAndConditions(),
+
+            // Botón para registrar el proyecto
+            ElevatedButton(
+              onPressed: _acceptTerms ? () async {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Registrando proyecto...')),
+                );
+
+                try {
+                  await dataService.addRegistration(widget.project.id, userId);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Inscripción realizada con éxito!')),
+                  );
+                  Navigator.pop(context);
+                } catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Error al inscribirse: $e')),
+                  );
+                }
+              } : null,
+              style: ElevatedButton.styleFrom(
+      
+                primary: Color.fromARGB(255, 46, 46, 46),
+                onPrimary: Colors.white,
+                padding: EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+              child: Text(
+                'Inscribirse',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87,
                 ),
               ),
-              SizedBox(height: 20), // Espacio entre el título y los campos
-
-              // Nombre del proyecto
-              _buildTextField(_projectNameController, 'Nombre del Proyecto'),
-              SizedBox(height: 16.0),
-
-              // Descripción del proyecto
-              _buildTextField(_descriptionController, 'Descripción del Proyecto', maxLines: 4),
-              SizedBox(height: 16.0),
-
-              // Organización
-              _buildTextField(_organizationController, 'Nombre de la Organización'),
-              SizedBox(height: 16.0),
-
-              // Ubicación
-              _buildTextField(_locationController, 'Ubicación del Proyecto'),
-              SizedBox(height: 16.0),
-
-              // Fecha de inicio
-              _buildTextField(_startDateController, 'Fecha de Inicio (dd/mm/yyyy)'),
-              SizedBox(height: 16.0),
-
-              // Fecha de finalización
-              _buildTextField(_endDateController, 'Fecha de Finalización (dd/mm/yyyy)'),
-              SizedBox(height: 24.0),
-
-              // Botón para registrar el proyecto
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Guardar la información del proyecto o enviarla al servidor
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Registrando proyecto...')),
-                    );
-                    // Aquí puedes agregar la lógica para enviar los datos
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 46, 46, 46), // Color secundario de VolunRed
-                  padding: EdgeInsets.symmetric(vertical: 15), // Aumentar el padding del botón
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30), // Esquinas redondeadas
-                  ),
-                ),
-                child: Text(
-                  'Registrar Proyecto',
-                  style: TextStyle(
-                    fontSize: 18, // Tamaño del texto del botón
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  // Método para construir los campos de texto
-  Widget _buildTextField(TextEditingController controller, String label, {int maxLines = 1}) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10), // Esquinas redondeadas
+  // Método para construir la sección de términos y condiciones
+  Widget _buildTermsAndConditions() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Términos y Condiciones',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        contentPadding: EdgeInsets.symmetric(vertical: 15), // Padding interno
-      ),
-      maxLines: maxLines,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Por favor, ingresa $label';
-        }
-        return null;
-      },
+        SizedBox(height: 10),
+        Text(
+          'Al inscribirse en este proyecto de voluntariado, usted acepta que sus datos serán compartidos con la organización a la que se inscribe.',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.black54,
+          ),
+        ),
+        SizedBox(height: 10),
+
+        // Expansión de términos y condiciones
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _showFullTerms = !_showFullTerms;
+            });
+          },
+          child: Text(
+            _showFullTerms ? 'Leer menos' : 'Leer más',
+            style: TextStyle(
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+        ),
+
+        // Mostrar términos completos
+        if (_showFullTerms) ...[
+          SizedBox(height: 10),
+          Text(
+            '1. Los participantes deben ser mayores de edad para inscribirse.\n'
+            '2. Los datos proporcionados serán utilizados exclusivamente para fines de contacto y no serán compartidos con terceros fuera de la organización.\n'
+            '3. La organización se reserva el derecho de aceptar o rechazar inscripciones.\n'
+            '4. Los participantes deberán asistir a la capacitación previa a la actividad.\n'
+            '5. La organización no se hace responsable de cualquier incidente durante la actividad.\n',
+            style: TextStyle(fontSize: 14, color: Colors.black54),
+          ),
+        ],
+
+        // Checkbox para aceptar los términos
+        Row(
+          children: [
+            Checkbox(
+              value: _acceptTerms,
+              activeColor: Colors.green,
+              onChanged: (value) {
+                setState(() {
+                  _acceptTerms = value ?? false;
+                });
+              },
+            ),
+            Text('Acepto los términos y condiciones'),
+          ],
+        ),
+      ],
     );
   }
 }
