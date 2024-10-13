@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:volunred_app/modules/home/home_page.dart';
 import 'package:firebase_core/firebase_core.dart'; // Importar Firebase
+import 'package:volunred_app/modules/home/home_page.dart';
 import 'firebase_options.dart'; // Importar configuración de Firebase
 
 void main() async {
